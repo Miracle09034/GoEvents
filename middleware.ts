@@ -1,21 +1,5 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-// export default clerkMiddleware({
-//     publicRoutes: [
-//         '/',
-//         '/events/:id',
-//         '/api/webhock/clerk',
-//         '/api/webhock/stripe',
-//         '/api/uploadthing'
-//     ],
-
-//     ignoredRoutes: [
-//         '/api/webhock/clerk',
-//         '/api/webhock/stripe',
-//         '/api/uploadthing'
-//     ]
-// });
-
 
 export default clerkMiddleware();
 

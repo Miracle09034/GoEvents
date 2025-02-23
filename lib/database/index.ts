@@ -4,7 +4,7 @@
 // would be inefficient. if the connection is still open, we use it else we create a new one
 
 import mongoose from 'mongoose'
-
+console.log('trying to connect to db')
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Lets set up our cache connection to mongoose. 
