@@ -1,4 +1,4 @@
-heI// Here we have some pre-defined types that we are goiing to use in our application
+// Here we have some pre-defined types that we are goiing to use in our application
 
 
 // ====== USER PARAMS
@@ -147,6 +147,6 @@ export type CreateUserParams = {
   }
   
   export type SearchParamProps = {
-  params: { id: string }; // Ensure this is a plain object
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: { id: string }; // Dynamic route parameter
+  searchParams: { [key: string]: string | string[] | undefined }; // Query string parameters
 };
