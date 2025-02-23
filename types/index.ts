@@ -147,6 +147,6 @@ export type CreateUserParams = {
   }
   
   export type SearchParamProps = {
-    params: { id: string };
-    searchParams: { [key: string]: string | string[] | undefined };
+  params: { id: string }; // Ensure this is a plain object
+  searchParams: { [key: string]: string | string[] | undefined };
 };
