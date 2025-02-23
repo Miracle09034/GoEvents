@@ -1,4 +1,4 @@
-// Here we have some pre-defined types that we are goiing to use in our application
+I// Here we have some pre-defined types that we are goiing to use in our application
 
 
 // ====== USER PARAMS
@@ -147,9 +147,10 @@ export type CreateUserParams = {
   }
   
   export type SearchParamProps = {
-    params: { id: string }
-    searchParams: { [key: string]: string | string[] | undefined;
-      ordersPage?: string;
-      eventsPage?: string;
-     }
-  }
+       params: { id: string };
+       searchParams: { 
+           [key: string]: string | string[] | undefined;
+           ordersPage?: string;
+           eventsPage?: string;
+       };
+   };
