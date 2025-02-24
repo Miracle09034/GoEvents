@@ -3,17 +3,19 @@ import ProfilePage from '@/components/ProfilePAge'; // Import the client compone
 import { getEventsByUser } from '@/lib/actions/event.actions';
 import { getOrdersByUser } from '@/lib/actions/order.actions';
 import { IOrder } from '@/lib/database/models/order.model';
-import { SearchParamProps  } from '@/types';
+import { SearchParamProps } from '@/types';
 
 interface ProfileProps {
   userId: string;
+  params: { id: string }; // Add params to match SearchParamProps
   searchParams?: SearchParamProps['searchParams'];
 }
 
-export default async function Profile({ userId, searchParams }: ProfileProps) {
+export default async function Profile({ userId, params, searchParams }: ProfileProps) {
   const ordersPage = Number(searchParams?.ordersPage) || 1;
   const eventsPage = Number(searchParams?.eventsPage) || 1;
 
+  
   // Fetch data
   const orders = await getOrdersByUser({ userId, page: ordersPage });
   const orderedEvents = orders?.data.map((order: IOrder) => order.event) || [];
