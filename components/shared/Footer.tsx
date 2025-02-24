@@ -15,7 +15,7 @@ const Footer = () => {
           />
         </Link>
 
-        <p>2023 GoEvents. All Right reserved</p>
+        <p>2025 GoEvents. Created by Miracle </p>
       </div>
     </footer>
   )
