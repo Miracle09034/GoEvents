@@ -3,18 +3,9 @@ import EventForm from "@/components/shared/EventForm"
 import { getEventById } from "@/lib/actions/event.actions"
 
 import { useAuth } from "@clerk/nextjs";
+import { SearchParamProps } from '@/types';
 
-type UpdateEventProps = {
-
-    params: {
-
-        id: string
-
-    }
-
-}
-
-const UpdateEvent = async ({ params: { id } }: UpdateEventProps) => {
+const UpdateEvent = async ({ params: { id } }: SearchParamProps ) => {
 
     const user = useAuth(); // Use `currentUser` instead of `auth`
     const userId = user?.userId as string; // Access the user ID from the `currentUser` object
