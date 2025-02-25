@@ -33,7 +33,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
     <>
 
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
+      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10 mt-8">
 
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
 
