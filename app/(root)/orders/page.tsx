@@ -1,4 +1,4 @@
-import Search from '@/components/shared/Search'
+weimport Search from '@/components/shared/Search'
 
 import { getOrdersByEvent } from '@/lib/actions/order.actions'
 
@@ -17,7 +17,7 @@ return (
 
         <>
 
-            <section className=" bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10">
+            <section className=" bg-primary-50 bg-dotted-pattern bg-cover bg-center py-5 md:py-10 mt-8">
 
                 <h3 className="wrapper h3-bold text-center sm:text-left ">Orders</h3>
 
