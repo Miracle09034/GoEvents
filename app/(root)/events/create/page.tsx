@@ -1,4 +1,4 @@
-'use client'
+to'use client'
 
 import EventForm from "@/components/shared/EventForm" 
 import { useAuth } from "@clerk/nextjs";
@@ -10,7 +10,7 @@ const CreateEvent = () => {
 
     return (
         <>
-            <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-7 md:py-13 mt-8"> 
+            <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-7 md:py-13 mt-20 sm:mt-10"> 
                 <h3 className="wrapper h3-bold text-center sm:text-left">Create Event</h3> 
             </section> 
             
