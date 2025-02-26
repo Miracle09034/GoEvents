@@ -1,4 +1,4 @@
-weimport Search from '@/components/shared/Search'
+import Search from '@/components/shared/Search'
 
 import { getOrdersByEvent } from '@/lib/actions/order.actions'
 
