@@ -67,7 +67,7 @@ export async function POST(req: Request) {
     }
 
     const newUser = await createUser(user);
-
+    console.log('this is the new user')
     if(newUser) {
       const client = await clerkClient()
       await client.users.updateUser(id, {
