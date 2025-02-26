@@ -35,7 +35,7 @@ const MobileNav = () => {
             </SheetTitle>
             {/* Optional: Add a description if needed */}
             <SheetDescription>
-              Navigation menu for mobile devices
+              
             </SheetDescription>
           </SheetHeader>
           <Separator className="border border-gray-50" />
