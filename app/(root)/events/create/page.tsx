@@ -1,4 +1,4 @@
-to'use client'
+'use client'
 
 import EventForm from "@/components/shared/EventForm" 
 import { useAuth } from "@clerk/nextjs";
