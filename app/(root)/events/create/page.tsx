@@ -4,12 +4,16 @@ import EventForm from "@/components/shared/EventForm"
 import { useAuth } from "@clerk/nextjs";
 
 const CreateEvent = () => { 
-    const { userId: clerkUserId, user } = useAuth(); // Destructure `user` from `useAuth`
+    const { user } = useAuth(); // Destructure `user` from `useAuth`
 
-    // Extract the `userId` from `public_metadata`
-    const userId = user?.publicMetadata?.userId as string;
+  // Log the user object for debugging
+  console.log("User Object:", user);
 
-    console.log(userId); // Log the `userId` from `public_metadata`
+  // Extract the `userId` from `public_metadata`
+  const userId = user?.public_metadata?.userId as string;
+
+  // Log the `userId` for debugging
+  console.log("User ID from Public Metadata:", userId);
     
     return (
         <>
