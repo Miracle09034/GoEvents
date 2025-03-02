@@ -51,16 +51,16 @@ const populateEvent = (query: any) => {
 export async function createEvent({ userId, event, path }: CreateEventParams) {
 
     try {
-
+console.log(event)
         await connectToDatabase()
-
+        
          // Convert the userId string to an ObjectId
         const userIdAsObjectId = new ObjectId(userId);
 
        // Find the organizer using the _id field
        const organizer = await User.findOne({ _id: userIdAsObjectId });
 
-        
+        console.log(event)
 
         if (!organizer) throw new Error('Organizer not found')
 
