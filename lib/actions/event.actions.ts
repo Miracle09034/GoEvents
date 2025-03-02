@@ -12,6 +12,8 @@ import Category from '@/lib/database/models/category.model'
 
 import { handleError } from '@/lib/utils'
 
+import { ObjectId } from "mongodb"; // Import ObjectId from MongoDB
+
 import {
 
     CreateEventParams,
@@ -52,7 +54,13 @@ export async function createEvent({ userId, event, path }: CreateEventParams) {
 
         await connectToDatabase()
 
-        const organizer = await User.findOne({clerkId: userId})
+         // Convert the userId string to an ObjectId
+        const userIdAsObjectId = new ObjectId(userId);
+
+       // Find the organizer using the _id field
+       const organizer = await User.findOne({ _id: userIdAsObjectId });
+
+        
 
         if (!organizer) throw new Error('Organizer not found')
 
