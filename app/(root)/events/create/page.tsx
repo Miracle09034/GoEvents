@@ -4,10 +4,13 @@ import EventForm from "@/components/shared/EventForm"
 import { useAuth } from "@clerk/nextjs";
 
 const CreateEvent = () => { 
-    const user = useAuth(); // Use `currentUser` instead of `auth`
-    const userId = user?.userId as string; // Access the user ID from the `currentUser` object
-    console.log(userId)
+    const { userId: clerkUserId, user } = useAuth(); // Destructure `user` from `useAuth`
 
+    // Extract the `userId` from `public_metadata`
+    const userId = user?.publicMetadata?.userId as string;
+
+    console.log(userId); // Log the `userId` from `public_metadata`
+    
     return (
         <>
             <section className="bg-primary-50 bg-dotted-pattern bg-cover bg-center py-7 md:py-13 mt-20 sm:mt-10"> 
