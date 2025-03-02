@@ -53,7 +53,10 @@ export async function createEvent({ userId, event, path }: CreateEventParams) {
     try {
 console.log(event)
         await connectToDatabase()
-        
+          // Validate userId
+  if (!ObjectId.isValid(userId)) {
+    throw new Error("Invalid userId");
+  }
          // Convert the userId string to an ObjectId
         const userIdAsObjectId = new ObjectId(userId);
 console.log("userIdAsObjectId:", userIdAsObjectId);
