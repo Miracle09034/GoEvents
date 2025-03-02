@@ -58,7 +58,7 @@ console.log(event)
         const userIdAsObjectId = new ObjectId(userId);
 console.log("userIdAsObjectId:", userIdAsObjectId);
        // Find the organizer using the _id field
-       const organizer = await User.findById(userIdAsObjectId);
+       const organizer = await User.findById(userId);
   
         if (!organizer) throw new Error('Organizer not found')
 
