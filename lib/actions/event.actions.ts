@@ -51,7 +51,7 @@ const populateEvent = (query: any) => {
 export async function createEvent({ userId, event, path }: CreateEventParams) {
 
     try {
-console.log(event)
+console.log(userId)
         await connectToDatabase()
           // Validate userId
   if (!ObjectId.isValid(userId)) {
