@@ -7,10 +7,13 @@ import { SearchParamProps } from '@/types';
 
 const UpdateEvent = async ({ params: { id } }: SearchParamProps ) => {
 
-    const user = useAuth(); // Use `currentUser` instead of `auth`
-    const userId = user?.userId as string; // Access the user ID from the `currentUser` object
+    const { userId: clerkUserId, user } = useAuth(); // Destructure `user` from `useAuth`
 
+    // Extract the `userId` from `public_metadata`
+    const userId = user?.publicMetadata?.userId as string;
 
+    console.log(userId); // Log the `userId` from `public_metadata`
+    
     const event = await getEventById(id)
 
     return (
