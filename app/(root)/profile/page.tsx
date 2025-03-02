@@ -10,9 +10,13 @@ import Link from 'next/link'
 import React from 'react'
 
 const ProfilePage = async ({ searchParams }: SearchParamProps) => {
-  const user = useAuth(); // Use `currentUser` instead of `auth`
-    const userId = user?.userId as string; // Access the user ID from the `currentUser` object
+  const { userId: clerkUserId, user } = useAuth(); // Destructure `user` from `useAuth`
 
+  // Extract the `userId` from `public_metadata`
+  const userId = user?.publicMetadata?.userId as string;
+
+   
+  
   const ordersPage = Number(searchParams?.ordersPage) || 1;
   const eventsPage = Number(searchParams?.eventsPage) || 1;
 
