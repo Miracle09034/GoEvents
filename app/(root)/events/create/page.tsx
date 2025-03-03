@@ -1,10 +1,10 @@
 'use client'
 
 import EventForm from "@/components/shared/EventForm" 
-import { useAuth } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 
 const CreateEvent = () => { 
-    const { user } = useAuth(); // Use the `useUser` hook
+    const { user } = useUser(); // Use the `useUser` hook
 
      // Log the user object for debugging
      console.log("User Object:", user);
