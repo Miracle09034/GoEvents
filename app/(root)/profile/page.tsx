@@ -5,12 +5,12 @@ import { getEventsByUser } from '@/lib/actions/event.actions'
 import { getOrdersByUser } from '@/lib/actions/order.actions'
 import { IOrder } from '@/lib/database/models/order.model'
 import { SearchParamProps } from '@/types'
-import { useAuth } from '@clerk/nextjs'
+import { useUser } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
 
 const ProfilePage = async ({ searchParams }: SearchParamProps) => {
-  const { userId: clerkUserId, user } = useAuth(); // Destructure `user` from `useAuth`
+  const { user } = useUser(); // Destructure `user` from `useAuth`
 
   // Extract the `userId` from `public_metadata`
   const userId = user?.publicMetadata?.userId as string;
