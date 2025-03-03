@@ -15,10 +15,7 @@ const CreateEvent = () => {
      // Log the `userId` for debugging
      console.log("User ID from Public Metadata:", userId);
 
-     // Throw an error if `userId` is missing
-     if (!userId) {
-       throw new Error("User ID not found in public metadata");
-     }
+     
     
     return (
         <>
