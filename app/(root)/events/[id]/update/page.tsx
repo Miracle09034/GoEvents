@@ -2,12 +2,12 @@ import EventForm from "@/components/shared/EventForm"
 
 import { getEventById } from "@/lib/actions/event.actions"
 
-import { useAuth } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import { SearchParamProps } from '@/types';
 
 const UpdateEvent = async ({ params: { id } }: SearchParamProps ) => {
 
-    const { user } = useAuth(); // Use the `useUser` hook
+    const { user } = useUser(); // Use the `useUser` hook
 
      // Log the user object for debugging
      console.log("User Object:", user);
