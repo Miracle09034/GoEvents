@@ -29,7 +29,7 @@ const EventDetails = ({ event, relatedEvents, searchParams }: EventDetailsProps)
               <h2
   className="h2-bold"
   style={{
-    marginTop: '5rem', // Default margin for smaller screens
+    marginTop: '3rem', // Default margin for smaller screens
     '@media (min-width: 1000px)': {
       marginTop: '20rem', // Margin for large screens
     },
