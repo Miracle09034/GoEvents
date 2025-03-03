@@ -1,19 +1,24 @@
 'use client'
 
 import EventForm from "@/components/shared/EventForm" 
-import { useAuth } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 
 const CreateEvent = () => { 
-    const { user } = useAuth(); // Destructure `user` from `useAuth`
+    const { user } = useUser(); // Use the `useUser` hook
 
-  // Log the user object for debugging
-  console.log("User Object:", user);
+     // Log the user object for debugging
+     console.log("User Object:", user);
 
-  // Extract the `userId` from `public_metadata`
-  const userId = user?.public_metadata?.userId as string;
+     // Extract the `userId` from `public_metadata`
+     const userId = user?.publicMetadata?.userId as string;
 
-  // Log the `userId` for debugging
-  console.log("User ID from Public Metadata:", userId);
+     // Log the `userId` for debugging
+     console.log("User ID from Public Metadata:", userId);
+
+     // Throw an error if `userId` is missing
+     if (!userId) {
+       throw new Error("User ID not found in public metadata");
+     }
     
     return (
         <>
