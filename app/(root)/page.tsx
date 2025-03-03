@@ -1,3 +1,5 @@
+'use client'
+
 import CategoryFilter from '@/components/shared/CategoryFilter';
 
 import Collection from '@/components/shared/Collection'
