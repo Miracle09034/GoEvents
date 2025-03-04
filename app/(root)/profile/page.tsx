@@ -20,15 +20,16 @@ export default async function Profile({ searchParams }: SearchParamProps) {
     },
   });
 
-  console.log(response)
-
   if (!response.ok) {
+    const errorResponse = await response.json();
+    console.error("API Error:", errorResponse);
     throw new Error("Failed to fetch user data");
   }
 
   const user = await response.json();
+  console.log("User Object:", user);
 
-  // Extract the `userId` from `publicMetadata`
+  // Extract the `userId` from `public_metadata`
   const publicMetadataUserId = user.public_metadata.userId as string;
 
   // Fetch orders and events for the user
