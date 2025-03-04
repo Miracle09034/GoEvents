@@ -30,7 +30,7 @@ if (!user) {
 
   const orders = await getOrdersByUser({ _Id, page: ordersPage });
   const organizedEvents = await getEventsByUser({ _Id, page: eventsPage });
-
+  console.log(organizedEvents)
   // Extract ordered events from orders
   const orderedEvents = orders?.data.map((order) => order.event) || [];
 
