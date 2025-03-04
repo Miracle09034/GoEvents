@@ -6,14 +6,15 @@ import { SearchParamProps } from '@/types';
 
 export default async function Profile({ searchParams }: SearchParamProps) {
   // Get the authenticated user object
-  const { user } = auth();
-
+  const { userId, currentUser } = auth();
+  console.log(userId)
+  console.log(currentUser)
   if (!user) {
     throw new Error("User not authenticated");
   }
 
   // Extract the `userId` from `publicMetadata`
-  const publicMetadataUserId = user.publicMetadata.userId as string;
+  const publicMetadataUserId = currentUser.publicMetadata.userId as string;
 
   // Fetch orders and events for the user
   const ordersPage = Number(searchParams?.ordersPage) || 1;
