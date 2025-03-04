@@ -1,51 +1,28 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useUser } from '@clerk/nextjs';
 import Collection from '@/components/shared/Collection';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 interface ProfilePageProps {
+  orderedEvents: any[]; // Replace `any` with the correct type for your events
+  organizedEvents: any[]; // Replace `any` with the correct type for your events
   ordersPage: number;
   eventsPage: number;
-}
-
-interface Event {
-  id: string;
-  name: string;
-  date: string;
-}
-
-interface OrdersResponse {
-  orderedEvents: Event[];
-  organizedEvents: Event[];
   totalPagesOrders: number;
   totalPagesEvents: number;
 }
 
-const ProfilePage = ({ ordersPage, eventsPage }: ProfilePageProps) => {
-  const { user } = useUser();
-  const [data, setData] = useState<OrdersResponse | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (user) {
-        const res = await fetch(`/api/profile-data`, {
-          method: 'POST',
-          body: JSON.stringify({ userId: user.id, ordersPage, eventsPage }),
-          headers: { 'Content-Type': 'application/json' },
-        });
-
-        const result = await res.json();
-        setData(result);
-      }
-    };
-
-    fetchData();
-  }, [user, ordersPage, eventsPage]);
-
-  if (!data) return <p>Loading...</p>;
+const ProfilePage = ({
+  orderedEvents,
+  organizedEvents,
+  ordersPage,
+  eventsPage,
+  totalPagesOrders,
+  totalPagesEvents,
+}: ProfilePageProps) => {
+  const { user } = useUser(); // Use `useUser` for client-side interactivity
 
   return (
     <>
@@ -61,14 +38,14 @@ const ProfilePage = ({ ordersPage, eventsPage }: ProfilePageProps) => {
 
       <section className="wrapper my-8">
         <Collection
-          data={data.orderedEvents}
+          data={orderedEvents}
           emptyTitle="No event tickets purchased yet"
           emptyStateSubtext="No worries - plenty of exciting events to explore!"
           collectionType="My_Tickets"
           limit={3}
           page={ordersPage}
           urlParamName="ordersPage"
-          totalPages={data.totalPagesOrders}
+          totalPages={totalPagesOrders}
         />
       </section>
 
@@ -84,14 +61,14 @@ const ProfilePage = ({ ordersPage, eventsPage }: ProfilePageProps) => {
 
       <section className="wrapper my-8">
         <Collection
-          data={data.organizedEvents}
+          data={organizedEvents}
           emptyTitle="No events have been created yet"
           emptyStateSubtext="Go create some now"
           collectionType="Events_Organized"
           limit={3}
           page={eventsPage}
           urlParamName="eventsPage"
-          totalPages={data.totalPagesEvents}
+          totalPages={totalPagesEvents}
         />
       </section>
     </>
