@@ -12,10 +12,27 @@ export default async function Profile({ searchParams }: SearchParamProps) {
   }
 
 
+  // Fetch orders and events for the user
+  const ordersPage = Number(searchParams?.ordersPage) || 1;
+  const eventsPage = Number(searchParams?.eventsPage) || 1;
+
+  const orders = await getOrdersByUser({ userId, page: ordersPage });
+  const organizedEvents = await getEventsByUser({ userId, page: eventsPage });
+
+  // Extract ordered events from orders
+  const orderedEvents = orders?.data.map((order) => order.event) || [];
 
   // Pass the data to the client component
   return (
-    <ProfilePage />
-      
-  );
+    <ProfilePage
+      orderedEvents={orderedEvents}
+      organizedEvents={organizedEvents?.data}
+      ordersPage={ordersPage}
+      eventsPage={eventsPage}
+      totalPagesOrders={orders?.totalPages}
+      totalPagesEvents={organizedEvents?.totalPages}
+    />
+
+
+  )
 }
