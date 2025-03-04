@@ -6,10 +6,10 @@ import { SearchParamProps } from '@/types';
 
 export default async function Profile({ searchParams }: SearchParamProps) {
   // Get the authenticated user object
-  const { user } = await auth();
-  console.log(user)
+  const { user } = auth();
+
   if (!user) {
-    console.log("User not authenticated");
+    throw new Error("User not authenticated");
   }
 
   // Extract the `userId` from `publicMetadata`
@@ -37,7 +37,3 @@ export default async function Profile({ searchParams }: SearchParamProps) {
     />
   );
 }
-
-
-
-
