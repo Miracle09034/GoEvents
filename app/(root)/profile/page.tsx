@@ -2,7 +2,7 @@ import ProfilePage from '@/components/ProfilePage'; // Import the client compone
 import { getEventsByUser } from '@/lib/actions/event.actions';
 import { getOrdersByUser } from '@/lib/actions/order.actions';
 import { SearchParamProps } from '@/types';
-import { auth } from '@clerk/nextjs';
+import { auth } from '@clerk/nextjs/server';
 
 export default async function Profile({ searchParams }: SearchParamProps) {
   const { userId } = auth(); // Get the Clerk userId
