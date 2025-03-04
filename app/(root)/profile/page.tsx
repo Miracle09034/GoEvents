@@ -13,7 +13,7 @@ export default async function Profile({ searchParams }: SearchParamProps) {
   }
 
   // Fetch the user from the database using the userId
-  const user = await User.findOne({ userId });
+  const user = await User.findOne({ clerkId: userId });
   console.log("User from DB:", user);
 
    if (!user) {
