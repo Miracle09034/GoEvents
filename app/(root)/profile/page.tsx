@@ -14,11 +14,11 @@ export default async function Profile({ searchParams }: SearchParamProps) {
 
   // Fetch the user from the database using the userId
   const user = await User.findOne({ clerkId: userId });
-  console.log("User from DB:", user);
+console.log("User from DB:", user);
 
-   if (!user) {
-    throw new Error("User not found in database");
-  }
+if (!user) {
+  throw new Error("User not found in database");
+}
 
 // Extract the MongoDB _id (ObjectId) of the user
   const _Id = user._id;
