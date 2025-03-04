@@ -13,6 +13,8 @@ export default async function Profile({ searchParams }: SearchParamProps) {
     throw new Error("Session token not found");
   }
 
+console.log(sessionToken)
+
   // Fetch the user object from the Clerk API
   const response = await fetch('https://api.clerk.com/v1/users/me', {
     headers: {
