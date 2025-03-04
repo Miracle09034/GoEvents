@@ -1,11 +1,12 @@
+import { auth } from '@clerk/nextjs/server';
 import ProfilePage from '@/components/ProfilePage'; // Import the client component
 import { getEventsByUser } from '@/lib/actions/event.actions';
 import { getOrdersByUser } from '@/lib/actions/order.actions';
 import { SearchParamProps } from '@/types';
-import { Clerk } from '@clerk/nextjs';
 
 export default async function Profile({ searchParams }: SearchParamProps) {
-  const user = await Clerk.getUser(context.req);
+  // Get the authenticated user object
+  const { user } = auth();
 
   if (!user) {
     console.log("User not authenticated");
@@ -36,3 +37,7 @@ export default async function Profile({ searchParams }: SearchParamProps) {
     />
   );
 }
+
+
+
+
