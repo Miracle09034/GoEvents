@@ -5,7 +5,7 @@ import { SearchParamProps } from '@/types';
 import { auth } from '@clerk/nextjs/server';
 
 export default async function Profile({ searchParams }: SearchParamProps) {
-  const { userId } = auth(); // Get the Clerk userId
+  const { userId } = await auth(); // Get the Clerk userId
  console.log(userId)
   if (!userId) {
     throw new Error("User not authenticated");
