@@ -6,8 +6,8 @@ import { SearchParamProps } from '@/types';
 
 export default async function Profile({ searchParams }: SearchParamProps) {
   // Get the authenticated user object
-  const { user } = auth();
-
+  const { user } = await auth();
+  console.log(user)
   if (!user) {
     console.log("User not authenticated");
   }
