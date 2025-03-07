@@ -85,7 +85,7 @@ console.log("userIdAsObjectId:", userIdAsObjectId);
 
 // GET ONE EVENT BY ID
 
-export async function getEventById(eventId: ObjectId) {
+export async function getEventById(eventId: String) {
 
     try {
 
@@ -213,13 +213,13 @@ export async function getAllEvents({ query, limit = 6, page, category }: GetAllE
 
 // GET EVENTS BY ORGANIZER
 
-export async function getEventsByUser({ userId, limit = 6, page }: GetEventsByUserParams) {
+export async function getEventsByUser({ _Id, limit = 6, page }: GetEventsByUserParams) {
 
     try {
 
         await connectToDatabase()
 
-        const conditions = { organizer: userId }
+        const conditions = { organizer: _Id }
 
         const skipAmount = (page - 1) * limit
 
@@ -234,7 +234,7 @@ export async function getEventsByUser({ userId, limit = 6, page }: GetEventsByUs
         const events = await populateEvent(eventsQuery)
 
         const eventsCount = await Event.countDocuments(conditions)
-
+        console.log(events)
         return { data: JSON.parse(JSON.stringify(events)), totalPages: Math.ceil(eventsCount / limit) }
 
     } catch (error) {
