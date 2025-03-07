@@ -85,7 +85,7 @@ console.log("userIdAsObjectId:", userIdAsObjectId);
 
 // GET ONE EVENT BY ID
 
-export async function getEventById(eventId: string) {
+export async function getEventById(eventId: ObjectId) {
 
     try {
 
