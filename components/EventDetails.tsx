@@ -15,7 +15,8 @@ interface EventDetailsProps {
 const EventDetails = ({ event, relatedEvents, searchParams }: EventDetailsProps) => {
   return (
     <>
-      <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain">
+      <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain"  style={{ marginTop: '5rem', '@media (min-width: 640px)': { marginTop: '0' } }}>
+  {/* Your content */}  
         <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
           <Image
             src={event.imageUrl}
