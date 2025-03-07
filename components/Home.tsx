@@ -16,7 +16,8 @@ interface HomeProps {
 export default function Home({ events, searchParams }: HomeProps) {
   return (
     <>
-      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10 mt-8">
+      <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10 mt-8"  style={{ marginTop: '5rem', '@media (min-width: 640px)': { marginTop: '0' } }}>
+  {/* Your content */} 
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
             <h1 className="h1-bold">Celebrate Life's Precious Moments With Us!</h1>
