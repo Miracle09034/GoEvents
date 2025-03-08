@@ -129,7 +129,7 @@ export type CreateUserParams = {
   }
   
   export type GetOrdersByUserParams = {
-    userId: string | null
+    _Id: ObjectId | null
     limit?: number
     page: string | number | null
   }
