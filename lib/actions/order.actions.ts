@@ -210,7 +210,7 @@ export async function getOrdersByEvent({ searchString, eventId }: GetOrdersByEve
 
 // GET ORDERS BY USER
 
-export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUserParams) {
+export async function getOrdersByUser({ _Id, limit = 3, page }: GetOrdersByUserParams) {
 
     try {
 
@@ -218,7 +218,7 @@ export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUs
 
         const skipAmount = (Number(page) - 1) * limit
 
-        const conditions = { buyer: userId }
+        const conditions = { buyer: _Id }
 
         const orders = await Order.distinct('event._id')
 
