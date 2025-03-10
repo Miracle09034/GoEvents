@@ -26,6 +26,24 @@ export const headerLinks = [
 
 ]
 
+export const footerLinks = [
+    {
+      label: 'Home',
+      route: '/',
+    },
+    {
+      label: 'About',
+      route: '/about',
+    },
+    {
+      label: 'Contact',
+      route: '/contact',
+    },
+  ];
+  
+  
+  
+
 export const eventDefaultValues = {
 
     title: '',
@@ -49,4 +67,3 @@ export const eventDefaultValues = {
     url: '',
 
 }
-
