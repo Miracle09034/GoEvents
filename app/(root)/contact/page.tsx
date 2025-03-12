@@ -53,7 +53,7 @@ const Contact = () => {
             </Button>
           </div>
           <Image
-            src="/assets/images/about.png"
+            src="/assets/images/contact.png"
             alt="contact"
             width={1000}
             height={1000}
